@@ -8,7 +8,7 @@ const PersonalPost = ({ userId }) => {
 
   useEffect(() => {
     axios
-      .get(`https://shart-tank.vercel.app//findpitches/${userId}`)
+      .get(`https://shart-tank.vercel.app/findpitches/${userId}`)
       .then((res) => {
         setPitches(res.data)
       })

@@ -19,7 +19,7 @@ const UserList = ({ data }) => {
     }
 
     await axios
-      .post(`https://shart-tank.vercel.app//user/follow`, details)
+      .post(`https://shart-tank.vercel.app/user/follow`, details)
       .then((res) => {
         setFollow(true)
         toast.success('Wow, you are connected', {
@@ -55,7 +55,7 @@ const UserList = ({ data }) => {
     }
 
     await axios
-      .post(`https://shart-tank.vercel.app//user/notify`, message)
+      .post(`https://shart-tank.vercel.app/user/notify`, message)
       .then(() => {
         toast.success('message sent to entrepreneur', {
           position: 'bottom-right',

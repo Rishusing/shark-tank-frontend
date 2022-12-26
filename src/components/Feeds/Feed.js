@@ -37,10 +37,10 @@ const Feed = () => {
   const [totalCount, setCount] = useState(0)
 
   useEffect(() => {
-    axios.get(`https://shart-tank.vercel.app//totalpitches`).then((res) => {
+    axios.get(`https://shart-tank.vercel.app/totalpitches`).then((res) => {
       setCount(res.data.totalpitches)
     })
-    dispatch(fetchPitches(`https://shart-tank.vercel.app//pitches`))
+    dispatch(fetchPitches(`https://shart-tank.vercel.app/pitches`))
   }, [])
 
   const nextPage = () => {}

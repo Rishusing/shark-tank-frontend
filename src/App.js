@@ -24,11 +24,11 @@ function App() {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         dispatch(
-          fetchUser(`https://shart-tank.vercel.app//user/${currentUser.uid}`),
+          fetchUser(`https://shart-tank.vercel.app/user/${currentUser.uid}`),
         )
         dispatch(
           fetchAllUser(
-            `https://shart-tank.vercel.app//alluser/${currentUser.uid}`,
+            `https://shart-tank.vercel.app/alluser/${currentUser.uid}`,
           ),
         )
         dispatch(setUser({ email: currentUser.email, uid: currentUser.uid }))
