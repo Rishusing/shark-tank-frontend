@@ -16,7 +16,7 @@ const Comment = ({ pitchID, setTotalComment }) => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_API_URL}/findcomment/${pitchID}`)
+      .get(`https://shart-tank.vercel.app//findcomment/${pitchID}`)
       .then((res) => {
         setComments([...res.data].reverse())
       })
@@ -43,7 +43,7 @@ const Comment = ({ pitchID, setTotalComment }) => {
       commentText: inpcomment,
     }
     axios
-      .post(`${process.env.REACT_APP_BASE_API_URL}/pitches/comment`, newComment)
+      .post(`https://shart-tank.vercel.app//pitches/comment`, newComment)
       .then((res) => {
         setComments([...res.data].reverse())
         setTotalComment((prev) => prev + 1)

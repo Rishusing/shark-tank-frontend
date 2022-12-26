@@ -90,15 +90,10 @@ const CreateEntrepreneur = () => {
     }
 
     await axios
-      .post(
-        `${process.env.REACT_APP_BASE_API_URL}/createentrepreneur`,
-        entrepreneur,
-      )
+      .post(`https://shart-tank.vercel.app//createentrepreneur`, entrepreneur)
       .then((res) => {
         dispatch(
-          fetchUser(
-            `${process.env.REACT_APP_BASE_API_URL}/user/${res.data._id}`,
-          ),
+          fetchUser(`https://shart-tank.vercel.app//user/${res.data._id}`),
         )
         navigate('/')
       })

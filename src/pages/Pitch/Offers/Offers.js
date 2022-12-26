@@ -8,9 +8,7 @@ const Offers = ({ pitchID }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(
-      fetchOffer(`${process.env.REACT_APP_BASE_API_URL}/findoffers/${pitchID}`),
-    )
+    dispatch(fetchOffer(`https://shart-tank.vercel.app//findoffers/${pitchID}`))
   }, [dispatch, pitchID])
 
   const allOffers = useSelector((state) => state.offer)

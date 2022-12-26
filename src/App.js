@@ -18,27 +18,23 @@ import FetchPitch from './partials/SinglePost/FetchPitch'
 import LandingPage from './LandingPage'
 
 function App() {
-  
   const dispatch = useDispatch()
 
   useMemo(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         dispatch(
-          fetchUser(
-            `${process.env.REACT_APP_BASE_API_URL}/user/${currentUser.uid}`,
-          ),
+          fetchUser(`https://shart-tank.vercel.app//user/${currentUser.uid}`),
         )
         dispatch(
           fetchAllUser(
-            `${process.env.REACT_APP_BASE_API_URL}/alluser/${currentUser.uid}`,
+            `https://shart-tank.vercel.app//alluser/${currentUser.uid}`,
           ),
         )
         dispatch(setUser({ email: currentUser.email, uid: currentUser.uid }))
       }
     })
   }, [dispatch])
-
 
   return (
     <BrowserRouter>
