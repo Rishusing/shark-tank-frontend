@@ -1,0 +1,234 @@
+.profile_main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 1200px;
+}
+
+
+.profile_main_child{
+    width: 95%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-direction: row;
+}
+
+.profile_main_left{
+    width: 60%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.profile_main_left_child{
+    height: 550px;
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.image_section{
+    height: 40%;
+    width: 98%;
+    background-image: url(./newbg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 15px rgb(173, 173, 173);
+}
+
+.profile_image_section{
+    width: 180px;
+    height: 180px;
+    margin-top: 200px;
+}
+
+.profile_image_section img{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.heading_section{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, .2));
+    font-size: 60px;
+    margin-bottom: 35px;
+}
+
+.heading_section span{
+    font-family: 'Alfa Slab One', cursive;
+    position: relative;
+    display: inline-block;
+    color: white;
+    text-transform: uppercase;
+    animation: waviy 1s infinite;
+    animation-delay: calc(.1s * var(--i));
+    text-shadow: 0 0 5px black;
+}
+
+@keyframes heading_section {
+
+    0%,40%,100% {
+        transform: translateY(0)
+    }
+    20% {
+        transform: translateY(-20px)
+    }
+}
+
+
+.type_follower_section{
+    position: relative;
+    height: 15%;
+    width: 70%;
+    float: right;
+    
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.type_follower_section .company_name{
+    width: 30%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile_type{
+    width: 30%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile_type p {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(102, 102, 102);
+}
+
+.company_name svg{
+    font-size: 30px;
+    color: rgb(102, 102, 102);
+}
+.company_name p {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(102, 102, 102);
+}
+.industry_type p {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(102, 102, 102);
+}
+
+.type_follower_section .industry_type{
+    width: 30%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.profile_detail_section{
+    height: 30%;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profile_detail_section1{
+    height: 90%;
+    width: 40%;
+    
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.profile_detail_section2 {
+    height: 50%;
+    width: 40%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.profile_detail_section1 p, .profile_detail_section2 p{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(102, 102, 102);
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.profile_detail_section2 p{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.profile_detail_section1 p svg{
+    font-size: 30px;
+    color: rgb(1, 182, 164);
+}
+.profile_detail_section2 p svg{
+    font-size: 25px;
+    color: rgb(1, 182, 164);
+}
+
+.profile_detail_section3{
+    height: 80%;
+    width: 15%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.profile_detail_section3 svg{
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(48, 48, 48);
+}
+
+.advertisement_box{
+    width: 25%;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-left: 30px;
+    position: sticky;
+    top: 121px;
+    border-radius: 10px;
+}

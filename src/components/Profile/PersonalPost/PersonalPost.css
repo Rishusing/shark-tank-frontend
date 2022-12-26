@@ -1,0 +1,15 @@
+.postOfUser_main {
+    width: 70%;
+    margin-top: 20px;
+    /* height: 400px; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#timeAgo{
+    box-shadow: none;
+    color: rgb(100, 100, 100);
+}

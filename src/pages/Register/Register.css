@@ -1,0 +1,97 @@
+.register_main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register_main_child {
+    width: 700px;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+}
+
+.register_left_box {
+    width: 50%;
+    height: 100%;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.register_left_box img {
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.register_right_box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    justify-content: space-around;
+    background-color: rgb(39, 188, 226);
+}
+
+.register_email,
+.register_password {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.register_email input,
+.register_password input {
+    width: 90%;
+    height: 35px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    font-size: 15px;
+
+}
+
+input:focus {
+    outline: 1px solid black;
+}
+
+label {
+    margin-bottom: 5px;
+    color: white;
+    text-shadow: 3px 2px 5px black;
+}
+
+.register_head h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 3px 2px 5px black;
+}
+
+.register_btn .btn {
+    width: 100px;
+    height: 40px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: rgb(3, 93, 116);
+    cursor: pointer;
+    color: white;
+}
+
+.register_route {
+    margin-bottom: 20px;
+}
+
+.register_route a {
+    color: rgb(86, 3, 3);
+}

@@ -1,0 +1,419 @@
+.feed_main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-width: 1500px;
+    margin-bottom: 10px;
+}
+
+.feed_left {
+    width: 17%;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    position: sticky;
+    top: 121px;
+    margin-right: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feed_middle {
+    width: 40%;
+    background-color: rgb(255, 255, 255);
+    margin-top: 5px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.feed_post {
+    width: 95%;
+    height: 70px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgb(205, 205, 205);
+}
+
+.feed_profile {
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+
+.animate-charcter {
+
+    background-image: linear-gradient(-225deg,
+            #0215a6 0%,
+            #02a64b 29%,
+            #14fae3 67%,
+            #33a0ff 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 15px;
+    font-family: cursive;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.feed_profile img{
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.feed_ask {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feed_ask_btn {
+    height: 35px;
+    width: 130px;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    background-color: rgb(8, 114, 207);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+
+}
+
+.popup-content {
+    width: 800px;
+    height: 500px;
+
+}
+
+.post_form {
+    width: 800px;
+    height: 500px;
+    background-color: rgb(202, 248, 250);
+    border-radius: 10px;
+    border: 2px solid rgb(54, 156, 245);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#upload_photo {
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.detail_input_field_post {
+    width: 60%;
+    height: 80%;
+    background-color: rgba(5, 136, 151, 0.188);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.detail_input_post {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail_input_post input {
+    width: 350px;
+    height: 40px;
+    border: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: rgb(4, 121, 82);
+}
+
+.detail_input_post svg {
+    margin-right: 0;
+    font-size: 30px;
+    color: rgb(81, 79, 79);
+    height: 42px;
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding-left: 10px;
+}
+
+.detail_input_post input:focus {
+    outline: none;
+}
+
+.detail_input_post .postbtn {
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(8, 114, 207);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+.feed_left_top {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: rgb(135, 135, 135); */
+    background-image: linear-gradient(rgb(79, 79, 79), rgb(0, 221, 255));
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top: 5px solid rgb(247, 206, 2);
+    border-bottom: 3px solid rgb(247, 206, 2);
+
+}
+
+
+.feed_left_top img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid rgb(247, 206, 2);
+}
+
+.feed_left_top h2 {
+    text-transform: uppercase;
+    color:#ffffff;
+    font-size: 12px;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+
+}
+
+.feed_left_top  {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.feed_left_bottom {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+/* .feed_left_bottom_detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+.feed_left_bottom_detail div {
+    margin-top: 30px;
+}
+
+.feed_left_bottom_detail .followers {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feed_left_bottom_detail .followers button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.feed_left_bottom_detail .followers svg {
+    font-size: 20px;
+    color: rgb(30, 166, 245);
+}
+
+.feed_left_bottom_detail .myPitches {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feed_left_bottom_detail .myPitches button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.feed_left_bottom_detail .myPitches svg {
+    font-size: 20px;
+    color: rgb(30, 166, 245);
+}
+
+.Logout_section {
+    text-align: center;
+}
+
+.Logout_section button {
+    border: none;
+    font-size: 16px;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(30, 166, 245);
+}
+
+.feed_right {
+    width: 25%;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-left: 30px;
+    position: sticky;
+    top: 121px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.feed_right .feed_right_users {
+    width: 95%;
+    height: 95%;
+    border-radius: 5px;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+.user_recommend_box {
+    width: 90%;
+    height: 60px;
+    /* background-color: rgb(204, 204, 204); */
+    box-shadow: 0 0 3px gray;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feed_right_users::-webkit-scrollbar {
+    width: 6px;
+}
+
+.feed_right_users::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.feed_right_users::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.feed_right_users::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.user_recommend {
+    width: 60%;
+    height: 100%;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+
+.user_recommend p {
+    padding-left: 5px;
+    color: gray;
+    font-weight: bold;
+}
+.user_recommend img {
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(8, 209, 228);
+}
+
+.user_recommend_btn {
+    width: 30%;
+    height: 100%;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.user_recommend_btn button {
+    width: 75px;
+    height: 28px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(30, 166, 245);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+#followed_btn{
+    background-color: white;
+    color: rgb(30, 166, 245);
+    cursor: default;
+}
+
+.pagination{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination svg{
+    border-radius: 50%;
+    font-size: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+}
+
+.pagination svg:hover{
+    background-color: rgb(150, 150, 150);
+}

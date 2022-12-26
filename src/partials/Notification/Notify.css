@@ -1,0 +1,139 @@
+.notify_main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.notify_child{
+    width: 95%;
+    display: flex;
+    
+    /* align-items: center; */
+    justify-content: space-around;
+}
+
+.notify_left{
+    width: 25%;
+    height: 500px;
+    margin-top: 30px;
+    position: static;
+    z-index: -1;
+}
+
+.notify_middle{
+    width: 40%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    overflow-y: scroll;
+}
+
+.notify_middle::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notify_middle::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.notify_middle::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.notify_middle::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.notifyBox{
+    width: 95%;
+    height: 95%;
+    /* background-color: black; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.each_notification{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 70px;
+    width: 95%;
+    box-shadow: 0 0 5px gray;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.note_detail{
+    width: 75%;
+    height: 60px; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.note_detail img{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.note_detail p{
+    margin-left: 10px;
+    font-size: 15px;
+    color: rgb(75, 75, 75);
+    font-weight: 500;
+    transform: scale(1, .9);
+}
+
+.note_detail p span{
+    margin-left: 10px;
+    font-size: 15px;
+    color: rgb(75, 75, 75);
+    font-weight: bold;
+    color: rgb(7, 7, 89);
+    transform: scale(1, 1);
+    cursor: pointer;
+}
+
+.note_time_ago{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.note_time_ago p{
+    font-size: 11px;
+    color: rgb(106, 105, 105);
+}
+
+.notify_right{
+    width: 25%;
+    height: 500px;
+    margin-top: 30px;
+    position: static;
+    z-index: -1;
+}
+
+.notify_right img{
+    width: 400px;
+    border-radius: 10px;
+}
+.notify_left img{
+    width: 400px;
+    border-radius: 10px;
+}

@@ -1,0 +1,110 @@
+.pitch_offer_box {
+    width: 95%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.each_offer{
+    margin-top: 5px;
+    width: 90%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 4px rgb(168, 168, 168);
+}
+
+.each_offer_img{
+    margin-left: 20px;
+    width: 15%;
+    display: flex;
+}
+
+.each_offer_img img{
+    border-radius: 50%;
+    margin-top: 12px;
+}
+
+.each_offer_detail_box{
+    margin-top: 5px;
+    width: 80%;
+    margin-right: 20px;
+    background-color: rgb(229, 252, 254);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.each_offer_profile{
+    margin-top: 5px;
+    width: 95%;
+    height: 40px;
+    
+}
+
+.each_offer_profile .name{
+    color: gray;
+}
+
+.each_offer_profile span {
+    color: rgb(73, 73, 73);
+    font-weight: bold;
+    font-size: 11px;
+    float: right;
+}
+
+.each_offer_profile .name_type {
+    color: gray;
+    font-size: 12px;
+}
+.each_offer_detail{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 95%;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.asItis,
+.amount_equity, 
+.commentBtInvestor{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 98%;
+    
+}
+
+.asItis p{
+    color: rgb(107, 106, 106);
+    font-size: 14px;
+}
+
+.amount_equity{
+    display: flex;
+    justify-content: space-around;
+}
+
+.amount_equity p{
+    color: rgb(107, 106, 106);
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(88, 177, 255);
+    border-radius: 3px;
+    padding: 5px;
+    min-width: 100px;
+}
+
+.commentBtInvestor p{
+    color:rgb(107, 106, 106);
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+}

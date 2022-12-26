@@ -1,0 +1,28 @@
+import React, { useEffect } from 'react'
+import Eachoffer from '../EachOffer/Eachoffer'
+import './Offers.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchOffer } from '../../../redux/slice/offerSlice'
+
+const Offers = ({ pitchID }) => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(
+      fetchOffer(`${process.env.REACT_APP_BASE_API_URL}/findoffers/${pitchID}`),
+    )
+  }, [dispatch, pitchID])
+
+  const allOffers = useSelector((state) => state.offer)
+
+  return (
+    <div className="pitch_offer_box">
+      {!allOffers.loading &&
+        allOffers.offer.map((offer) => (
+          <Eachoffer key={offer._id} offerData={offer} />
+        ))}
+    </div>
+  )
+}
+
+export default Offers

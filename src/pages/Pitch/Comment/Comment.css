@@ -1,0 +1,33 @@
+.commentField{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.commentInput{
+    width: 70%;
+    height: 40px;
+    border: 2px solid gray;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding-left: 20px;
+    font-size: 15px;
+    color: rgb(2, 77, 47);
+}
+
+.commentField input:focus{
+    outline: none;
+}
+
+.commentField button{
+    height: 44px;
+    width: 70px;
+    border: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(7, 123, 239, 0.742);;
+}
