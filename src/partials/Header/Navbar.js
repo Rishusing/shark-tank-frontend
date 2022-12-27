@@ -49,9 +49,9 @@ const Navbar = () => {
                 </div>
             }
             <div className="nav_right">
-                <button className='nav_btn'>
-                    Get Started
-                </button>
+                {
+                    !(userload.loading) && <p>Hi, {userload.users.name} </p>
+                }
             </div>
         </div>
     )

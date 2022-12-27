@@ -97,3 +97,9 @@
     color: white;
     background-color: #146e92;
 }
+
+.nav_right p{
+    color: #646464;
+    font-size: 15px;
+    font-weight: 600;
+}
