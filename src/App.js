@@ -17,7 +17,6 @@ import Notify from './partials/Notification/Notify'
 import FetchPitch from './partials/SinglePost/FetchPitch'
 import LandingPage from './LandingPage'
 
-
 function App() {
   const dispatch = useDispatch()
 

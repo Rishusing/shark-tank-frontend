@@ -4,18 +4,20 @@ import { RiPercentLine } from 'react-icons/ri'
 import { HiCurrencyRupee } from 'react-icons/hi2'
 import { BsFillCameraFill } from 'react-icons/bs'
 import { MdSubtitles } from 'react-icons/md'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Resizer from 'react-image-file-resizer'
 import Popup from 'reactjs-popup'
 import { useNavigate } from 'react-router-dom'
+import { fetchPitches } from '../../../redux/slice/pitchesSlice'
 
 const Pitchmachine = () => {
   const [open, setOpen] = useState(false)
   const closeModal = () => setOpen(false)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const resizeFile = (file) =>
     new Promise((resolve) => {
@@ -97,6 +99,7 @@ const Pitchmachine = () => {
           progress: undefined,
           theme: 'light',
         })
+        dispatch(fetchPitches(`https://shart-tank.vercel.app/pitches`))
         setOpen(false)
         navigate('/feed')
       })

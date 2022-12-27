@@ -89,7 +89,9 @@ const CreateInvestor = () => {
     await axios
       .post(`https://shart-tank.vercel.app/createinvestor`, investor)
       .then((res) => {
-        dispatch(fetchUser(`https://shart-tank.vercel.app/user/${res.data._id}`))
+        dispatch(
+          fetchUser(`https://shart-tank.vercel.app/user/${res.data._id}`),
+        )
         navigate('/feed')
       })
       .catch(() => {
