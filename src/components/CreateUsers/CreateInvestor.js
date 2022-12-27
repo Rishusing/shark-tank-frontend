@@ -89,10 +89,8 @@ const CreateInvestor = () => {
     await axios
       .post(`https://shart-tank.vercel.app/createinvestor`, investor)
       .then((res) => {
-        dispatch(
-          fetchUser(`https://shart-tank.vercel.app/user/${res.data._id}`),
-        )
-        navigate('/')
+        dispatch(fetchUser(`https://shart-tank.vercel.app/user/${res.data._id}`))
+        navigate('/feed')
       })
       .catch(() => {
         toast.error('Someting went wrong', {

@@ -33,7 +33,7 @@ const LandingNav = () => {
             </div>
             <div className="nav_right">
                 <button className='nav_btn' onClick={GotoFeedPage}>
-                    Get Start
+                    Get Started
                 </button>
             </div>
         </div>

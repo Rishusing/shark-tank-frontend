@@ -50,7 +50,7 @@ const Navbar = () => {
             }
             <div className="nav_right">
                 <button className='nav_btn'>
-                    Get Start
+                    Get Started
                 </button>
             </div>
         </div>

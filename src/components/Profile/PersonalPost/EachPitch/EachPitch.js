@@ -25,6 +25,7 @@ const EachPitch = ({ pitchData }) => {
 
   const [isliked, setIsliked] = useState(false)
   const [totallike, setTotallike] = useState(pitchData.likes.length)
+  const [totalComment, setTotalComment] = useState(pitchData.comments.length)
 
   useEffect(() => {
     pitchData.likes.forEach((like) => {
@@ -109,7 +110,7 @@ const EachPitch = ({ pitchData }) => {
           <div className="pitch_bottom_offers" onClick={openComment}>
             <RiMessage2Fill />
             <span>
-              {pitchData.comments.length} <p>comments</p>
+              {totalComment} <p>comments</p>
             </span>
           </div>
           <div className="pitch_bottom_offers" onClick={openOffer}>
@@ -127,7 +128,11 @@ const EachPitch = ({ pitchData }) => {
         </div>
         {offerflag && <Offers pitchID={pitchData._id} />}
         {commentflag && (
-          <Comment commentsData={pitchData.comments} pitchID={pitchData._id} />
+          <Comment
+            commentsData={pitchData.comments}
+            pitchID={pitchData._id}
+            setTotalComment={setTotalComment}
+          />
         )}
         {postOfferflag && <Postoffer pitchID={pitchData._id} />}
       </div>

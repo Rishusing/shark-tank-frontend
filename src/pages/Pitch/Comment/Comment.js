@@ -18,7 +18,9 @@ const Comment = ({ pitchID, setTotalComment }) => {
     axios
       .get(`https://shart-tank.vercel.app/findcomment/${pitchID}`)
       .then((res) => {
-        setComments([...res.data].reverse())
+        // const
+        const newData = res.data.reverse()
+        setComments(newData)
       })
       .catch(() => {
         toast.error('something wrong while commenting', {
@@ -45,7 +47,8 @@ const Comment = ({ pitchID, setTotalComment }) => {
     axios
       .post(`https://shart-tank.vercel.app/pitches/comment`, newComment)
       .then((res) => {
-        setComments([...res.data].reverse())
+        const newData = res.data.reverse()
+        setComments(newData)
         setTotalComment((prev) => prev + 1)
       })
       .catch(() => {

@@ -38,3 +38,24 @@ code {
   background-position: center;
   border-radius: 50%;
 }
+
+.landing-page-main{
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  min-width: 1200px;
+}
+
+.slider-container{
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  
+}
+
+.slider-container div{
+  border-radius: 10px;
+}

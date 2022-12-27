@@ -92,10 +92,8 @@ const CreateEntrepreneur = () => {
     await axios
       .post(`https://shart-tank.vercel.app/createentrepreneur`, entrepreneur)
       .then((res) => {
-        dispatch(
-          fetchUser(`https://shart-tank.vercel.app/user/${res.data._id}`),
-        )
-        navigate('/')
+        dispatch(fetchUser(`https://shart-tank.vercel.app/user/${res.data._id}`))
+        navigate('/feed')
       })
       .catch((e) => {
         toast.error('Someting went wrong', {

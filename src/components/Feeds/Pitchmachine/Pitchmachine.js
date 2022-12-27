@@ -98,7 +98,7 @@ const Pitchmachine = () => {
           theme: 'light',
         })
         setOpen(false)
-        navigate('/')
+        navigate('/feed')
       })
       .catch((e) => {
         toast.error('Something wrong', {
