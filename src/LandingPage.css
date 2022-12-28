@@ -10,8 +10,8 @@
 }
 
 .landingpage_left {
-    width: 350px;
-    height: 350px;
+    width: 380px;
+    height: 380px;
     border-radius: 5px;
     margin: 5px;
     box-shadow: 0 0 5px gray;
@@ -73,7 +73,7 @@
     font-size: 30px;
     font-weight: bold;
     color: rgb(2, 168, 134);
-    text-shadow: 0 6px 6px rgb(99, 99, 99);
+    text-shadow: 0 6px 8px rgb(127, 126, 126);
 }
 
 .left2,
@@ -81,12 +81,12 @@
     font-size: 25px;
     font-weight: bold;
     color: rgb(197, 164, 0);
-    text-shadow: 0 6px 6px rgb(74, 68, 36);
+    text-shadow: 0 6px 8px rgb(255, 255, 255);
 }
 
 .landingpage_middle {
-    width: 350px;
-    height: 350px;
+    width: 380px;
+    height: 380px;
     box-shadow: 0 0 5px gray;
     margin: 5px;
     border-radius: 5px;
@@ -116,20 +116,20 @@
 .middle2 p,
 .middle4 p {
     color: rgb(197, 164, 0);
-    text-shadow: 0 6px 6px rgb(74, 68, 36);
+    text-shadow: 0 6px 8px rgb(255, 255, 255);
 }
 
 .middle1 p,
 .middle3 p,
 .middle5 p {
     color: rgb(2, 168, 134);
-    text-shadow: 0 6px 6px rgb(99, 99, 99);
+    text-shadow: 0 6px 8px rgb(127, 126, 126);
 
 }
 
 .landingpage_right {
-    width: 350px;
-    height: 350px;
+    width: 380px;
+    height: 380px;
     display: flex;
     box-shadow: 0 0 5px gray;
     margin: 5px;
