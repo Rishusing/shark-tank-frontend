@@ -23,4 +23,4 @@ const Offers = ({ pitchID }) => {
   )
 }
 
-export default Offers
+export default React.memo(Offers)

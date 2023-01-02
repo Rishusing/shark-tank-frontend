@@ -3,8 +3,8 @@ import Navbar from '../../partials/Header/Navbar'
 import './Feed.css'
 import { MdSubtitles } from 'react-icons/md'
 import { SlUserFollowing } from 'react-icons/sl'
-
-import { useDispatch, useSelector } from 'react-redux'
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { useSelector, useDispatch } from 'react-redux'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../firebase'
 import { setUser } from '../../redux/slice/authSlice'
@@ -12,10 +12,11 @@ import { useNavigate } from 'react-router-dom'
 import Pitch from '../../pages/Pitch/Pitch'
 import Pitchmachine from './Pitchmachine/Pitchmachine'
 import axios from 'axios'
-import { fetchPitches } from '../../redux/slice/pitchesSlice'
+
 import FollowNow from './FollowNow/FollowNow'
 import Popup from 'reactjs-popup'
 import Followers from '../Profile/Followers/Followers'
+import Skeleton from './Skeleton/Skeleton'
 
 const Feed = () => {
   const navigate = useNavigate()
@@ -26,7 +27,6 @@ const Feed = () => {
 
   const userload = useSelector((state) => state.user)
 
-  const pitcheState = useSelector((state) => state.pitches)
 
   const logout = async () => {
     await signOut(auth)
@@ -35,17 +35,33 @@ const Feed = () => {
   }
 
   const [totalCount, setCount] = useState(0)
+  const [allPitches, setAllPitches] = useState([]);
+  const [pitchLoading, setPitchLoading] = useState(true);
+
+  // console.log(totalCount);
+  const [pageNumber, setPageNumber] = useState(0);
+
+
+  const fetchLimitedPitch = async () => {
+    const page = pageNumber + 1;
+    setPageNumber(page);
+    await axios.get(`https://shart-tank.vercel.app/pitchlimit?limit=3&skip=${(page - 1) * 3}`)
+      .then((res) => {
+        setAllPitches([...allPitches, ...res.data]);
+        setPitchLoading(false);
+      })
+      .catch(() => {
+        console.log('something wrong in fetching pitches');
+      })
+  }
 
   useEffect(() => {
     axios.get(`https://shart-tank.vercel.app/totalpitches`).then((res) => {
       setCount(res.data.totalpitches)
+      fetchLimitedPitch()
     })
-    dispatch(fetchPitches(`https://shart-tank.vercel.app/pitches`))
   }, [])
 
-  const nextPage = () => {}
-
-  const previousPage = () => {}
 
   const showProfile = () => {
     navigate(`/profile/${userload.users._id}`)
@@ -123,17 +139,38 @@ const Feed = () => {
                 <h2 className="animate-charcter">WELCOME TO SHARK TANK</h2>
               </div>
               <div className="feed_ask">
-                <Pitchmachine />
+                <Pitchmachine setAllPitches={setAllPitches} setCount={setCount} />
               </div>
             </div>
           )}
 
           <div className="feed_pitches">
-            {!userload.loading &&
-              !pitcheState.loading &&
-              pitcheState.pitches.map((pitch) => (
-                <Pitch key={pitch._id} pitchData={pitch} />
-              ))}
+            {userload.loading ? <Skeleton />
+
+              :
+
+              !pitchLoading &&
+              <InfiniteScroll
+                dataLength={allPitches.length}
+                next={fetchLimitedPitch}
+                hasMore={!(totalCount === allPitches.length)}
+                loader={<Skeleton />}
+                endMessage={
+                  <p style={{ textAlign: 'center' }}>
+                    <b>Yay! You have seen it all</b>
+                  </p>
+                }
+
+              >
+                <div className="fix_to_center">
+                  {
+                    allPitches.map((pitch) => (
+                      <Pitch key={pitch._id} pitchData={pitch} />
+                    ))
+                  }
+                </div>
+              </InfiniteScroll>
+            }
           </div>
         </div>
         <FollowNow />
@@ -142,4 +179,4 @@ const Feed = () => {
   )
 }
 
-export default Feed
+export default React.memo(Feed)

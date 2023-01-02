@@ -7,6 +7,14 @@
 
 }
 
+.fix_to_center{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .pitch_main {
     margin-top: 20px;
     width: 95%;

@@ -173,4 +173,4 @@ const Pitch = ({ pitchData }) => {
   )
 }
 
-export default Pitch
+export default React.memo(Pitch)

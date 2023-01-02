@@ -157,4 +157,4 @@ const Postoffer = (props) => {
   )
 }
 
-export default Postoffer
+export default React.memo(Postoffer)

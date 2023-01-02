@@ -22,7 +22,7 @@ const pitchesSlice = createSlice({
 
         builder.addCase(fetchPitches.fulfilled, (state, action) => {
             state.loading = false
-            state.pitches = action.payload
+            state.pitches = [...state.pitches,...action.payload]
             state.error = ''
         })
 

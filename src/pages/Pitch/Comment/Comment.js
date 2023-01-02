@@ -102,4 +102,4 @@ const Comment = ({ pitchID, setTotalComment }) => {
   )
 }
 
-export default Comment
+export default React.memo(Comment)

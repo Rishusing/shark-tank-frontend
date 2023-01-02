@@ -30,13 +30,13 @@ const Navbar = () => {
             <div className="nav_middle">
 
                 <div className="nav_mid_child nav_twitter">
-                    <BsTwitter />
+                    <a href="https://twitter.com/ABCSharkTank" rel="noreferrer" target='_blank'><BsTwitter /></a>
                 </div>
                 <div className="nav_mid_child nav_facebook">
-                    <BsFacebook />
+                    <a href="https://www.instagram.com/sharktank.india/?hl=en" rel="noreferrer" target='_blank'><BsFacebook /></a>
                 </div>
                 <div className="nav_mid_child nav_insta">
-                    <BsInstagram />
+                    <a href="https://www.instagram.com/sharktankabc/?hl=en" rel="noreferrer" target='_blank'><BsInstagram /></a>
                 </div>
 
             </div>
