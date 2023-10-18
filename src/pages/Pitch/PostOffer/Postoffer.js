@@ -13,17 +13,18 @@ const Postoffer = (props) => {
   const entrepreneurId = props.entrepreneurId
   const setTotalOffer = props.setTotalOffer
   const navigate = useNavigate()
-  // console.log(pitchID);
-  // console.log(entrepreneurId);
 
-  const [amount, setAmount] = useState('')
-  const [equity, setEquity] = useState('')
-  const [suggestion, setSuggestion] = useState('')
+  const [bid, setBid] = useState({ amount: "", equity: "", suggestion: "" });
+
+  const handleBidChange = (e) => {
+    setBid({ ...bid, [e.target.name]: e.target.value })
+  }
+
   const dispatch = useDispatch()
   const me = useSelector((state) => state.user.users)
 
   const postOffer = async () => {
-    if (amount === '' || equity === '' || suggestion === '') {
+    if (bid.amount === '' || bid.equity === '' || bid.suggestion === '') {
       return toast.error('Please select all three fields', {
         position: 'bottom-right',
         autoClose: 2000,
@@ -41,9 +42,9 @@ const Postoffer = (props) => {
       investorId: me._id,
       investorName: me.name,
       avatar: me.avatar,
-      amount,
-      equity,
-      comment: suggestion,
+      amount: bid.amount,
+      equity: bid.equity,
+      comment: bid.suggestion,
     }
 
     // console.log(newOffer);
@@ -54,9 +55,7 @@ const Postoffer = (props) => {
         dispatch(
           fetchOffer(`https://shart-tank.vercel.app/findoffers/${pitchID}`),
         )
-        setSuggestion('')
-        setAmount('')
-        setEquity('')
+        setBid({ amount: "", equity: "", suggestion: "" });
         setTotalOffer((prev) => prev + 1)
 
         toast.success('offer is posted', {
@@ -129,26 +128,29 @@ const Postoffer = (props) => {
         <div className="offerAmountEquity">
           <input
             type="text"
+            name="amount"
             className="postOfferInput"
             placeholder="Amount In Rupees"
-            onChange={(e) => setAmount(e.target.value)}
-            value={amount}
+            onChange={handleBidChange}
+            value={bid.amount}
           />
           <input
             type="text"
+            name="equity"
             className="postOfferInput"
             placeholder="Equity"
-            onChange={(e) => setEquity(e.target.value)}
-            value={equity}
+            onChange={handleBidChange}
+            value={bid.equity}
           />
         </div>
         <div className="postSuggestion">
           <input
             type="text"
+            name="suggestion"
             className="postOffer"
             placeholder="Suggestion"
-            onChange={(e) => setSuggestion(e.target.value)}
-            value={suggestion}
+            onChange={handleBidChange}
+            value={bid.suggestion}
           />
           <button onClick={postOffer}>POST</button>
         </div>

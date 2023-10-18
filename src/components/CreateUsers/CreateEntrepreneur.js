@@ -22,10 +22,11 @@ const CreateEntrepreneur = () => {
   const navigate = useNavigate()
   const authData = useSelector((state) => state.profile)
 
-  const [phone, setPhone] = useState('')
-  const [name, setName] = useState('')
-  const [companyname, setCompanyname] = useState('')
-  const [industry, setIndustry] = useState('')
+  const [user, setUser] = useState({ name: "", phone: "", companyname: "", industry: "" });
+  const handleUserChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  }
+
   const [avatar, setAvatar] = useState(
     'https://www.silcharmunicipality.in/wp-content/uploads/2021/02/male-face.jpg',
   )
@@ -61,10 +62,10 @@ const CreateEntrepreneur = () => {
     const entrepreneur = {
       _id: authData.userId,
       email: authData.user,
-      phone,
-      name,
-      companyname,
-      industry,
+      phone: user.phone,
+      name: user.name,
+      companyname: user.companyname,
+      industry: user.industry,
       avatar,
       profile: 'entrepreneur',
     }
@@ -75,7 +76,7 @@ const CreateEntrepreneur = () => {
       entrepreneur.companyname === '' ||
       entrepreneur.industry === '' ||
       entrepreneur.avatar ===
-        'https://www.silcharmunicipality.in/wp-content/uploads/2021/02/male-face.jpg'
+      'https://www.silcharmunicipality.in/wp-content/uploads/2021/02/male-face.jpg'
     ) {
       return toast.error('All fields are mandatory', {
         position: 'bottom-right',
@@ -151,23 +152,26 @@ const CreateEntrepreneur = () => {
                 <input
                   type="text"
                   placeholder="Name"
-                  onChange={(event) => setName(event.target.value)}
+                  name='name'
+                  onChange={handleUserChange}
                 />
               </div>
               <div className="detail_input">
                 <IoCallSharp />
                 <input
                   type="text"
+                  name='phone'
                   placeholder="Phone"
-                  onChange={(event) => setPhone(event.target.value)}
+                  onChange={handleUserChange}
                 />
               </div>
               <div className="detail_input">
                 <HiHomeModern />
                 <input
                   type="text"
+                  name='companyname'
                   placeholder="Company-name"
-                  onChange={(event) => setCompanyname(event.target.value)}
+                  onChange={handleUserChange}
                 />
               </div>
               <div className="detail_input">
@@ -175,7 +179,8 @@ const CreateEntrepreneur = () => {
                 <input
                   type="text"
                   placeholder="Industry-type"
-                  onChange={(event) => setIndustry(event.target.value)}
+                  name='industry'
+                  onChange={handleUserChange}
                 />
               </div>
               <div className="createProfileButton">

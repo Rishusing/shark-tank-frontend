@@ -11,16 +11,17 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const [registerEmail, setRegisterEmail] = useState("");
-    const [registerPassword, setRegisterPassword] = useState("");
-    const [registerCnfPassword, setRegisterCnfPassword] = useState("");
+    const [credential, setCredential] = useState({ registerEmail: "", registerPassword: "", registerCnfPassword: "" })
+    const handleCredChange = (e) => {
+        setCredential({ ...credential, [e.target.name]: e.target.value });
+    }
 
 
     const register = async (e) => {
 
         e.preventDefault();
 
-        if (registerPassword !== registerCnfPassword) {
+        if (credential.registerPassword !== credential.registerCnfPassword) {
             return toast.error('Password not matched', {
                 position: "bottom-right",
                 autoClose: 2000,
@@ -36,10 +37,10 @@ const Register = () => {
 
             await createUserWithEmailAndPassword(
                 auth,
-                registerEmail,
-                registerPassword
+                credential.registerEmail,
+                credential.registerPassword
             );
-            
+
             navigate('/create-entrepreneur')
 
         } catch (error) {
@@ -72,15 +73,15 @@ const Register = () => {
                         </div>
                         <div className="register_email">
                             <label>Enter your email  </label>
-                            <input type="text" onChange={(event) => { setRegisterEmail(event.target.value) }} placeholder="Email" />
+                            <input type="text" name='registerEmail' onChange={handleCredChange} placeholder="Email" />
                         </div>
                         <div className="register_password">
                             <label>Enter your password  </label>
-                            <input type="password" onChange={(event) => { setRegisterPassword(event.target.value) }} placeholder="Password" />
+                            <input type="password" name='registerPassword' onChange={handleCredChange} placeholder="Password" />
                         </div>
                         <div className="register_password">
                             <label>Confirm password  </label>
-                            <input type="password" onChange={(event) => { setRegisterCnfPassword(event.target.value) }} placeholder="Password" />
+                            <input type="password" name='registerCnfPassword' onChange={handleCredChange} placeholder="Password" />
                         </div>
                         <div className="register_btn">
                             <button onClick={register} className='btn' >SignUP</button>

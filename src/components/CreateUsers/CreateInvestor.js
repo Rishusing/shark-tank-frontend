@@ -21,9 +21,10 @@ const CreateInvestor = () => {
   const navigate = useNavigate()
   const authData = useSelector((state) => state.profile)
 
-  const [phone, setPhone] = useState('')
-  const [name, setName] = useState('')
-  const [companyname, setCompanyname] = useState('')
+  const [user, setUser] = useState({ name: '', phone: '', companyname: '' });
+  const handleUserChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  }
 
   const [avatar, setAvatar] = useState(
     'https://www.silcharmunicipality.in/wp-content/uploads/2021/02/male-face.jpg',
@@ -60,9 +61,9 @@ const CreateInvestor = () => {
     const investor = {
       _id: authData.userId,
       email: authData.user,
-      phone,
-      name,
-      companyname,
+      phone: user.phone,
+      name: user.name,
+      companyname: user.companyname,
       avatar,
       profile: 'investor',
     }
@@ -72,7 +73,7 @@ const CreateInvestor = () => {
       investor.name === '' ||
       investor.companyname === '' ||
       investor.avatar ===
-        'https://www.silcharmunicipality.in/wp-content/uploads/2021/02/male-face.jpg'
+      'https://www.silcharmunicipality.in/wp-content/uploads/2021/02/male-face.jpg'
     ) {
       return toast.error('All fields are mandatory', {
         position: 'bottom-right',
@@ -148,7 +149,8 @@ const CreateInvestor = () => {
                 <input
                   type="text"
                   placeholder="Name"
-                  onChange={(e) => setName(e.target.value)}
+                  name='name'
+                  onChange={handleUserChange}
                 />
               </div>
               <div className="detail_input">
@@ -156,15 +158,17 @@ const CreateInvestor = () => {
                 <input
                   type="text"
                   placeholder="Phone"
-                  onChange={(e) => setPhone(e.target.value)}
+                  name='phone'
+                  onChange={handleUserChange}
                 />
               </div>
               <div className="detail_input">
                 <HiHomeModern />
                 <input
                   type="text"
+                  name='companyname'
                   placeholder="Company-name"
-                  onChange={(e) => setCompanyname(e.target.value)}
+                  onChange={handleUserChange}
                 />
               </div>
               <div className="createProfileButton">

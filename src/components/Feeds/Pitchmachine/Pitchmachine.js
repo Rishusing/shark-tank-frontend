@@ -12,7 +12,7 @@ import Resizer from 'react-image-file-resizer'
 import Popup from 'reactjs-popup'
 
 const Pitchmachine = ({ setAllPitches, setCount }) => {
-  
+
   const [open, setOpen] = useState(false)
   const closeModal = () => setOpen(false)
 
@@ -45,10 +45,10 @@ const Pitchmachine = ({ setAllPitches, setCount }) => {
     'https://cdn-icons-png.flaticon.com/512/2879/2879307.png',
   )
 
-  const [pitchTitle, setTitle] = useState('')
-  const [pitchIdea, setIdea] = useState('')
-  const [askAmount, setAmount] = useState('')
-  const [equity, setEquity] = useState('')
+  const [pitchDetails, setPitchDetails] = useState({ pitchTitle: '', pitchIdea: '', askAmount: '', equity: '' });
+  const handlePitchDetailsChange = (e) => {
+    setPitchDetails({ ...pitchDetails, [e.target.name]: e.target.value });
+  }
 
   const pitchHandler = (e) => {
     e.preventDefault()
@@ -57,20 +57,20 @@ const Pitchmachine = ({ setAllPitches, setCount }) => {
       entrepreneurId: entrepreneur._id,
       entrepreneurName: entrepreneur.name,
       entrepreneurAvatar: entrepreneur.avatar,
-      pitchTitle,
-      pitchIdea,
+      pitchTitle: pitchDetails.pitchTitle,
+      pitchIdea: pitchDetails.pitchIdea,
       pitchImage,
-      askAmount,
-      equity,
+      askAmount: pitchDetails.askAmount,
+      equity: pitchDetails.equity,
     }
 
     if (
-      pitchTitle === '' ||
-      pitchIdea === '' ||
+      pitch.pitchTitle === '' ||
+      pitch.pitchIdea === '' ||
       pitchImage ===
-        'https://cdn-icons-png.flaticon.com/512/2879/2879307.png' ||
-      askAmount === '' ||
-      equity === ''
+      'https://cdn-icons-png.flaticon.com/512/2879/2879307.png' ||
+      pitch.askAmount === '' ||
+      pitch.equity === ''
     ) {
       return toast.error('All fields are mandatory', {
         position: 'bottom-right',
@@ -97,10 +97,10 @@ const Pitchmachine = ({ setAllPitches, setCount }) => {
           progress: undefined,
           theme: 'light',
         })
-        
-        const addPitchOnTop = {_id : 'kjndjnjdasnjajkas728y7y8',createdAt:new Date(),likes:[], offers:[], comments:[], ...pitch};
-        
-        setAllPitches(prev => [addPitchOnTop,...prev])
+
+        const addPitchOnTop = { _id: 'kjndjnjdasnjajkas728y7y8', createdAt: new Date(), likes: [], offers: [], comments: [], ...pitch };
+
+        setAllPitches(prev => [addPitchOnTop, ...prev])
         setCount(prev => prev + 1);
         setOpen(false)
       })
@@ -145,36 +145,40 @@ const Pitchmachine = ({ setAllPitches, setCount }) => {
                 <MdSubtitles />
                 <input
                   type="text"
+                  name='pitchTitle'
                   required
                   placeholder="Pitch Title"
-                  onChange={(e) => setTitle(e.target.value)}
+                  onChange={handlePitchDetailsChange}
                 />
               </div>
               <div className="detail_input_post">
                 <FcIdea />
                 <input
                   type="text"
+                  name='pitchIdea'
                   required
                   placeholder="Pitch Idea"
-                  onChange={(e) => setIdea(e.target.value)}
+                  onChange={handlePitchDetailsChange}
                 />
               </div>
               <div className="detail_input_post">
                 <HiCurrencyRupee />
                 <input
                   type="text"
+                  name='askAmount'
                   required
                   placeholder="Ask Amount"
-                  onChange={(e) => setAmount(e.target.value)}
+                  onChange={handlePitchDetailsChange}
                 />
               </div>
               <div className="detail_input_post">
                 <RiPercentLine />
                 <input
                   type="text"
+                  name='equity'
                   required
                   placeholder="Equity"
-                  onChange={(e) => setEquity(e.target.value)}
+                  onChange={handlePitchDetailsChange}
                 />
               </div>
 

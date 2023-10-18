@@ -10,14 +10,17 @@ import { ToastContainer, toast } from 'react-toastify'
 const Login = () => {
   const navigate = useNavigate()
 
-  const [loginEmail, setLoginEmail] = useState('')
-  const [loginPassword, setLoginPassword] = useState('')
+  const [credential, setCredential] = useState({ loginEmail: "", loginPassword: "" });
+
+  const handleLoginCredChange = (e) => {
+    setCredential({ ...credential, [e.target.name]: e.target.value })
+  }
 
   const login = async (e) => {
     e.preventDefault()
 
     try {
-      await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+      await signInWithEmailAndPassword(auth, credential.loginEmail, credential.loginPassword)
       navigate('/feed')
     } catch (error) {
       toast.error(error.message.slice(15), {
@@ -49,9 +52,8 @@ const Login = () => {
               <label>Enter your email </label>
               <input
                 type="text"
-                onChange={(event) => {
-                  setLoginEmail(event.target.value)
-                }}
+                name='loginEmail'
+                onChange={handleLoginCredChange}
                 placeholder="Email"
               />
             </div>
@@ -59,9 +61,8 @@ const Login = () => {
               <label>Enter your password </label>
               <input
                 type="password"
-                onChange={(event) => {
-                  setLoginPassword(event.target.value)
-                }}
+                name='loginPassword'
+                onChange={handleLoginCredChange}
                 placeholder="Password"
               />
             </div>
