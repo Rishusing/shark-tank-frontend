@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
 
 
-const socket = io('REACT_APP_BASE_API_URL');
+const socket = io(`${process.env.REACT_APP_BASE_API_URL}`);
 
 const MainBoard = () => {
 

@@ -19,7 +19,7 @@ const SideBar = ({ on_select, own_id, selectedUserId }) => {
     const dispatch = useDispatch();
     const fetchUserDetails = async (userIds) => {
         try {
-            dispatch(fetchChatListUsersDetail({ url: 'REACT_APP_BASE_API_URLcustom_user', userIds, own_id }))
+            dispatch(fetchChatListUsersDetail({ url: `${process.env.REACT_APP_BASE_API_URL}custom_user`, userIds, own_id }))
         } catch (error) {
             console.error('Error fetching user details:', error);
 
@@ -30,7 +30,7 @@ const SideBar = ({ on_select, own_id, selectedUserId }) => {
 
         const getChatUsers = async (pinneduser) => {
             const idsPinneduser = pinneduser.map(user => (user.userId2 !== own_id) ? user.userId2 : user.userId1);
-            const searchedUser = await axios.get(`REACT_APP_BASE_API_URLfinduser/${subuser.trim()}`);
+            const searchedUser = await axios.get(`${process.env.REACT_APP_BASE_API_URL}finduser/${subuser.trim()}`);
             const filteredSearchedUser = searchedUser.data.filter(item => !idsPinneduser.includes(item._id) && item._id !== own_id);
             setSearchUsers(filteredSearchedUser)
             setSkeletonflag(false);
@@ -75,7 +75,7 @@ const SideBar = ({ on_select, own_id, selectedUserId }) => {
 
     const addToChatList = async (_id) => {
         try {
-            const res = await axios.post('REACT_APP_BASE_API_URLnewconversation', { userId1: own_id, userId2: _id })
+            const res = await axios.post(`${process.env.REACT_APP_BASE_API_URL}newconversation`, { userId1: own_id, userId2: _id })
 
             console.log([...userspinned.conversations, res.data]);
             fetchUserDetails([...userspinned.conversations, res.data]);

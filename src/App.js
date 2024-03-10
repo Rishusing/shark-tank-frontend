@@ -25,10 +25,10 @@ function App() {
   useMemo(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        dispatch(fetchUser(`REACT_APP_BASE_API_URLuser/${currentUser.uid}`))
-        dispatch(fetchAllUser(`REACT_APP_BASE_API_URLalluser/${currentUser.uid}`))
+        dispatch(fetchUser(`${process.env.REACT_APP_BASE_API_URL}user/${currentUser.uid}`))
+        dispatch(fetchAllUser(`${process.env.REACT_APP_BASE_API_URL}alluser/${currentUser.uid}`))
         dispatch(setUser({ email: currentUser.email, uid: currentUser.uid }))
-        dispatch(fetchConversation(`REACT_APP_BASE_API_URLchat_list/${currentUser.uid}`))
+        dispatch(fetchConversation(`${process.env.REACT_APP_BASE_API_URL}chat_list/${currentUser.uid}`))
       }
     })
   }, [dispatch])

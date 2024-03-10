@@ -85,7 +85,7 @@ const Pitchmachine = ({ setAllPitches, setCount }) => {
     }
 
     axios
-      .post(`REACT_APP_BASE_API_URLcreatepitch`, pitch)
+      .post(`${process.env.REACT_APP_BASE_API_URL}createpitch`, pitch)
       .then(() => {
         toast.success('Your pitch is posted', {
           position: 'bottom-right',

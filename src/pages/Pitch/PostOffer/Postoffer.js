@@ -50,10 +50,10 @@ const Postoffer = (props) => {
     // console.log(newOffer);
 
     await axios
-      .post(`REACT_APP_BASE_API_URLpitches/offer`, newOffer)
+      .post(`${process.env.REACT_APP_BASE_API_URL}pitches/offer`, newOffer)
       .then(() => {
         dispatch(
-          fetchOffer(`REACT_APP_BASE_API_URLfindoffers/${pitchID}`),
+          fetchOffer(`${process.env.REACT_APP_BASE_API_URL}findoffers/${pitchID}`),
         )
         setBid({ amount: "", equity: "", suggestion: "" });
         setTotalOffer((prev) => prev + 1)
@@ -91,7 +91,7 @@ const Postoffer = (props) => {
     }
 
     await axios
-      .post(`REACT_APP_BASE_API_URLuser/notify`, message)
+      .post(`${process.env.REACT_APP_BASE_API_URL}user/notify`, message)
       .then(() => {
         toast.success('message sent to entrepreneur', {
           position: 'bottom-right',

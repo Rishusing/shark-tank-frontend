@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import { MdSend } from "react-icons/md";
 import { useSelector } from 'react-redux'
 
-const socket = io('REACT_APP_BASE_API_URL');
+const socket = io(`${process.env.REACT_APP_BASE_API_URL}`);
 
 
 

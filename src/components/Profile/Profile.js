@@ -67,7 +67,7 @@ const Profile = () => {
 
   useEffect(() => {
     axios
-      .get(`REACT_APP_BASE_API_URLuser/${params.userId}`)
+      .get(`${process.env.REACT_APP_BASE_API_URL}user/${params.userId}`)
       .then((res) => {
         setUserdata(res.data)
         setIsuser(true)
@@ -98,7 +98,7 @@ const Profile = () => {
     const updatedata = { id: userData._id, name, phone, companyname, avatar }
 
     axios
-      .post(`REACT_APP_BASE_API_URLuser/update`, updatedata)
+      .post(`${process.env.REACT_APP_BASE_API_URL}user/update`, updatedata)
       .then((res) => {
         setUserdata(res.data)
         setOpen(false)
