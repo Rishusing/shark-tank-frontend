@@ -1,4 +1,4 @@
-.nav_main{
+.nav_main {
     width: 100%;
     display: flex;
     align-items: center;
@@ -14,10 +14,10 @@
     height: 45px;
     background-color: rgb(239, 251, 255);
     min-width: 1000px;
-    
+
 }
 
-.nav_left{  
+.nav_left {
     margin-left: 10px;
     display: flex;
     align-items: center;
@@ -26,7 +26,7 @@
     height: 100%;
 }
 
-.nav_left img{
+.nav_left img {
     border-radius: 5px;
     cursor: pointer;
 }
@@ -50,7 +50,7 @@
     height: 80%;
 }
 
-.nav_mid_child{
+.nav_mid_child {
     width: 20%;
     height: 90%;
     display: flex;
@@ -59,34 +59,45 @@
     border-radius: 5px;
 }
 
-.nav_mid_child svg{
+.nav_mid_child svg {
     font-size: 30px;
 }
 
-.nav_twitter svg{
+.nav_twitter svg {
     color: #00acee;
 }
 
-.nav_facebook svg{
+.nav_facebook svg {
     color: #3b5998;
 }
 
-.nav_insta svg{
-    color:rgb(235, 16, 151);
+.nav_insta svg {
+    color: rgb(235, 16, 151);
 }
 
-.nav_notify svg{
+.nav_notify svg {
     font-size: 30px;
     color: rgb(12, 118, 231);
     cursor: pointer;
 }
 
-.nav_notify span{
+.nav_notify span {
     font-size: 12px;
     color: gray;
 }
 
-.nav_btn{
+.message_engine svg {
+    font-size: 30px;
+    color: rgb(12, 118, 231);
+    cursor: pointer;
+}
+
+.message_engine span {
+    font-size: 12px;
+    color: gray;
+}
+
+.nav_btn {
     border: none;
     width: 100px;
     height: 35px;
@@ -98,7 +109,7 @@
     background-color: #146e92;
 }
 
-.nav_right p{
+.nav_right p {
     color: #646464;
     font-size: 15px;
     font-weight: 600;

@@ -1,0 +1,196 @@
+.main_msg_container {
+    height: 95%;
+    width: 65%;
+    /* background-color: yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.chat_header {
+    width: 90%;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    /* border-radius: 15px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    /* border-bottom: 4px solid rgb(0, 255, 132); */
+    border: 1px solid gray;
+}
+
+
+
+.chat_form {
+    width: 90%;
+    height: 80px;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.chat_form .inp {
+    border: none;
+    height: 60%;
+    width: 90%;
+    border: none;
+    font-size: 1rem;
+}
+
+
+.chat_header_user_avatar {
+    height: 60px;
+    width: 60px;
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat_header_user_avatar img {
+    border: 1px solid gold;
+    border-radius: 50%;
+}
+
+.chat_header_user_name {
+    height: 95%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    /* align-items: center; */
+    /* background-color: yellow; */
+}
+
+.chat_header_user_name h4 {
+    /* margin-left: 10px;
+    margin-top: 20px; */
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(0, 0, 0, 0.837)
+}
+
+.chat_header_user_name p {
+    color: rgba(27, 27, 27, 0.721);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.chat_form button {
+    cursor: pointer;
+    border: none;
+    width: 10%;
+    height: 60%;
+}
+
+
+.message {
+    font-family: "Brush Script MT", cursive;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sender p {
+    margin: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+}
+
+.sender {
+    background-color: #f48bf6;
+    float: right;
+    clear: both;
+    margin-left: 150px;
+    margin-right: 20px;
+    box-shadow: 0 0 4px gray;
+}
+
+.receiver {
+    background-color: #4fadff;
+    float: left;
+    clear: both;
+    margin-right: 150px;
+    margin-left: 20px;
+    box-shadow: 0 0 4px gray;
+}
+
+.receiver p {
+    margin: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+
+}
+
+
+.main_chat_box {
+    width: 90%;
+    height: 500px;
+    background-color: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #ffffffa3;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+
+}
+
+.main_chat_box::-webkit-scrollbar {
+    width: 7px;
+}
+
+.main_chat_box::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.main_chat_box::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    cursor: pointer;
+}
+
+.main_chat_box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.main_chat_box::-webkit-scrollbar-thumb:active {
+    background: #016141;
+}
+
+.chat_form button svg {
+    font-size: 25px;
+}
+
+.chat_form button {
+    font-size: 25px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.chat_form input {
+    padding-left: 15px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.chat_form input:focus {
+    outline: none;
+    /* Remove default focus outline */
+}

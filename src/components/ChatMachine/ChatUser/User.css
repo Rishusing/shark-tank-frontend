@@ -1,0 +1,67 @@
+.chatuser_main_container {
+    width: 80%;
+    height: 70px;
+    min-height: 70px;
+    background-color: rgba(255, 255, 255, 0.593);
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid rgb(98, 172, 0);
+    cursor: pointer;
+}
+
+.chat_user_avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+.chat_user_avatar img {
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.chat_user_name {
+    margin-left: 5px;
+    height: 60px;
+    width: 200px;
+    /* background-color: beige; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.chat_user_name h3 {
+    color: rgb(48, 48, 48);
+}
+
+.chat_user_name p {
+    color: rgb(148, 135, 93);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.nonselected_chat_user {
+    background-color: white;
+}
+
+.selected_chat_user {
+    background-color: rgb(59, 176, 249);
+}
+
+.selected_chat_user h3 {
+    color: rgb(255, 255, 255);
+}
+
+.selected_chat_user p {
+    color: rgb(255, 245, 210);
+    font-size: 12px;
+    font-weight: bold;
+}

@@ -16,6 +16,7 @@ import { fetchAllUser } from './redux/slice/alluserSlice'
 import Notify from './partials/Notification/Notify'
 import FetchPitch from './partials/SinglePost/FetchPitch'
 import LandingPage from './LandingPage'
+import MainBoard from './components/ChatMachine/MainBoard/MainBoard'
 
 function App() {
   const dispatch = useDispatch()
@@ -71,6 +72,15 @@ function App() {
           element={
             <RequireAuth>
               <CreateInvestor />
+            </RequireAuth>
+          }
+        />
+
+        <Route
+          path="/message_engine/:id"
+          element={
+            <RequireAuth>
+              <MainBoard />
             </RequireAuth>
           }
         />

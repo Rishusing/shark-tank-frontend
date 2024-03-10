@@ -1,0 +1,20 @@
+.chat_main_container {
+    width: 100%;
+    min-height: 90vh;
+    /* background-color: rgb(179, 240, 245); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.chat_main_child {
+    width: 80%;
+    height: 600px;
+    /* background-color: rgba(108, 144, 149, 0.366); */
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}

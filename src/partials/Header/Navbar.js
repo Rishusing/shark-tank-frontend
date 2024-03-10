@@ -5,6 +5,7 @@ import { VscBellDot } from 'react-icons/vsc'
 import logo from './shark-tank-logo.png'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { MdMessage } from "react-icons/md";
 
 const Navbar = () => {
 
@@ -13,14 +14,18 @@ const Navbar = () => {
     const gotoHome = () => {
         navigate('/feed')
     }
-    
+
     const userload = useSelector(state => state.user);
 
     const showNotifications = () => {
         navigate(`/notifications/${userload.users._id}`)
     }
 
-    
+    const navigateToChats = () => {
+        navigate(`/message_engine/${userload.users._id}`)
+    }
+
+
 
     return (
         <div className='nav_main'>
@@ -48,6 +53,15 @@ const Navbar = () => {
                     <span>notifications</span>
                 </div>
             }
+
+            {
+                !(userload.loading) &&
+                <div className="message_engine">
+                    <MdMessage onClick={navigateToChats} />
+                    <span>messages</span>
+                </div>
+            }
+
             <div className="nav_right">
                 {
                     !(userload.loading) && <p>Hi, {userload.users.name} </p>
