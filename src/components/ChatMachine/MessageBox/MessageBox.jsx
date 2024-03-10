@@ -2,15 +2,16 @@ import React, { useEffect, useRef, useState } from 'react'
 import './MessageBox.css'
 import io from 'socket.io-client';
 import { MdSend } from "react-icons/md";
-import axios from 'axios';
+import { useSelector } from 'react-redux'
 
 const socket = io('https://shart-tank.vercel.app/');
 
 
 
-const MessageBox = ({ chats, addInChats, own_id, selectedUserId }) => {
+const MessageBox = ({ chats, addInChats, own_id }) => {
 
-    // console.log(chats);
+
+    const selectedUserState = useSelector(state => state.selectedUser);
 
     const autoScrollRef = useRef(null);
 
@@ -23,14 +24,13 @@ const MessageBox = ({ chats, addInChats, own_id, selectedUserId }) => {
     }, [chats])
 
     const [text, setText] = useState('');
-    const [selectedUserDetail, setSelectedUserDetail] = useState(null)
 
     const sendMessage = (e) => {
 
         e.preventDefault()
         if (text.trim() !== '') {
             e.preventDefault();
-            const payload = { text, receiverId: selectedUserId, senderId: own_id }
+            const payload = { text, receiverId: 'ds', senderId: own_id }
             // console.log(payload);
             addInChats(text)
             setText('')
@@ -38,30 +38,17 @@ const MessageBox = ({ chats, addInChats, own_id, selectedUserId }) => {
         }
     }
 
-    useEffect(() => {
-
-        const GD = async () => {
-            const userD = await axios.get(`https://shart-tank.vercel.app/custom_user/${selectedUserId}`)
-            setSelectedUserDetail(userD.data)
-        }
-
-        GD()
-
-    })
-
-
-
     return (
         <>
             {
-                selectedUserDetail && <div className='main_msg_container'>
+                selectedUserState.userExist && <div className='main_msg_container'>
                     <div className="chat_header">
                         <div className='chat_header_user_avatar'>
-                            <img src={selectedUserDetail.avatar} alt="" width='60px' height='60px' />
+                            <img src={selectedUserState.selectedUser.avatar} alt="" width='60px' height='60px' />
                         </div>
                         <div className="chat_header_user_name">
-                            <h4>{selectedUserDetail.name}</h4>
-                            <p>{selectedUserDetail.profile}</p>
+                            <h4>{selectedUserState.selectedUser.name}</h4>
+                            <p>{selectedUserState.selectedUser.profile}</p>
                         </div>
                     </div>
                     <div className="main_chat_box" ref={autoScrollRef}>

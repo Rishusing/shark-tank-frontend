@@ -3,26 +3,23 @@ import './SideBar.css'
 import User from '../ChatUser/User'
 import axios from 'axios'
 import UserSkeleton from '../UserSkeleton/UserSkeleton'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchChatListUsersDetail } from '../../../redux/slice/chat_list_users_detailSlice'
 
 const SideBar = ({ on_select, own_id, selectedUserId }) => {
 
     const [subuser, setSubUser] = useState('');
     const [searchUsers, setSearchUsers] = useState([]);
     const [skeletonflag, setSkeletonflag] = useState(false)
-    const [pinnedUser, setPinnedUser] = useState([])
-    const [pinnedUserDetail, setPinnedUserDetail] = useState([])
+    // const [pinnedUser, setPinnedUser] = useState([])
     // console.log(own_id);
 
+    const userspinned = useSelector((state) => state.conversations)
+    const userDetails = useSelector((state) => state.chat_list_users)
+    const dispatch = useDispatch();
     const fetchUserDetails = async (userIds) => {
         try {
-            const userDetailsPromises = userIds.map(userId => {
-                return axios.get(`https://shart-tank.vercel.app/custom_user/${userId.userId2 !== own_id ? userId.userId2 : userId.userId1}`).then(response => response.data);
-            });
-
-            const userDetails = await Promise.all(userDetailsPromises);
-            // console.log('zxz');
-            setPinnedUserDetail(userDetails)
-
+            dispatch(fetchChatListUsersDetail({ url: 'https://shart-tank.vercel.app/custom_user', userIds, own_id }))
         } catch (error) {
             console.error('Error fetching user details:', error);
 
@@ -33,8 +30,6 @@ const SideBar = ({ on_select, own_id, selectedUserId }) => {
 
         const getChatUsers = async (pinneduser) => {
             const idsPinneduser = pinneduser.map(user => (user.userId2 !== own_id) ? user.userId2 : user.userId1);
-
-            // console.log(idsPinneduser);
             const searchedUser = await axios.get(`https://shart-tank.vercel.app/finduser/${subuser.trim()}`);
             const filteredSearchedUser = searchedUser.data.filter(item => !idsPinneduser.includes(item._id) && item._id !== own_id);
             setSearchUsers(filteredSearchedUser)
@@ -42,13 +37,10 @@ const SideBar = ({ on_select, own_id, selectedUserId }) => {
         }
 
         const getPinnedUser = async () => {
-            const userspinned = await axios.get(`https://shart-tank.vercel.app/chat_list/${own_id}`)
-            fetchUserDetails(userspinned.data);
-            setPinnedUser(userspinned.data)
 
             if (subuser.trim() !== '') {
                 setSkeletonflag(true);
-                getChatUsers(userspinned.data)
+                getChatUsers(userspinned.conversations)
             }
             else {
                 setSearchUsers([])
@@ -57,13 +49,16 @@ const SideBar = ({ on_select, own_id, selectedUserId }) => {
         getPinnedUser();
     }, [subuser])
 
+    useEffect(() => {
+        fetchUserDetails(userspinned.conversations);
+    }, [userspinned.conversations])
+
 
 
     const handleInputChange = (event) => {
         setSubUser(event.target.value);
     };
 
-    // Define a function to handle the debouncing
     const debounce = (func, delay) => {
 
         let timeoutId;
@@ -81,11 +76,12 @@ const SideBar = ({ on_select, own_id, selectedUserId }) => {
     const addToChatList = async (_id) => {
         try {
             const res = await axios.post('https://shart-tank.vercel.app/newconversation', { userId1: own_id, userId2: _id })
-            // console.log(res.data);
-            fetchUserDetails([...pinnedUser, res.data]);
-            setPinnedUser(prv => [...prv, res.data])
+
+            console.log([...userspinned.conversations, res.data]);
+            fetchUserDetails([...userspinned.conversations, res.data]);
+
             setSearchUsers([])
-            // on_select(res.data.userId2)
+
         }
         catch (e) {
             console.log(e);
@@ -130,7 +126,7 @@ const SideBar = ({ on_select, own_id, selectedUserId }) => {
             </div>
 
             {
-                pinnedUserDetail.map((user) => <User selectedUserId={selectedUserId} key={user._id} userDetail={user} on_select={on_select} />)
+                userDetails.chatusersdetail.map((user) => <User selectedUserId={selectedUserId} key={user._id} userDetail={user} on_select={on_select} />)
             }
         </div>
     )

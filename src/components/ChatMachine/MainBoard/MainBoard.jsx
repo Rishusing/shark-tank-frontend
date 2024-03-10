@@ -18,6 +18,7 @@ const MainBoard = () => {
     const [selectedUser, setSelectedUser] = useState(null);
 
     const OnSelect = (userDetail) => {
+        // console.log(userDetail);
         setSelectedUser(userDetail)
     }
 
@@ -54,7 +55,7 @@ const MainBoard = () => {
             <div className='chat_main_container'>
                 <div className="chat_main_child">
                     <SideBar on_select={OnSelect} own_id={userId} selectedUserId={selectedUser} />
-                    {selectedUser && <MessageBox chats={userschat[selectedUser] || []} addInChats={addInChats} own_id={userId} selectedUserId={selectedUser} />}
+                    {selectedUser && <MessageBox chats={userschat[selectedUser] || []} addInChats={addInChats} own_id={userId} />}
                 </div>
             </div>
         </>

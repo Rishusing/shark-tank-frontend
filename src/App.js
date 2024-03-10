@@ -13,6 +13,7 @@ import CreateEntrepreneur from './components/CreateUsers/CreateEntrepreneur'
 import CreateInvestor from './components/CreateUsers/CreateInvestor'
 import { fetchUser } from './redux/slice/userSlice'
 import { fetchAllUser } from './redux/slice/alluserSlice'
+import { fetchConversation } from './redux/slice/conversationSlice'
 import Notify from './partials/Notification/Notify'
 import FetchPitch from './partials/SinglePost/FetchPitch'
 import LandingPage from './LandingPage'
@@ -24,18 +25,17 @@ function App() {
   useMemo(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        dispatch(
-          fetchUser(`https://shart-tank.vercel.app/user/${currentUser.uid}`),
-        )
-        dispatch(
-          fetchAllUser(
-            `https://shart-tank.vercel.app/alluser/${currentUser.uid}`,
-          ),
-        )
+        dispatch(fetchUser(`https://shart-tank.vercel.app/user/${currentUser.uid}`))
+        dispatch(fetchAllUser(`https://shart-tank.vercel.app/alluser/${currentUser.uid}`))
         dispatch(setUser({ email: currentUser.email, uid: currentUser.uid }))
+        dispatch(fetchConversation(`https://shart-tank.vercel.app/chat_list/${currentUser.uid}`))
       }
     })
   }, [dispatch])
+
+  // const userspinned = useSelector((state) => state.conversations)
+  // console.log(userspinned);
+
 
   return (
     <BrowserRouter>
