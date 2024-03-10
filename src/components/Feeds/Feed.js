@@ -45,7 +45,7 @@ const Feed = () => {
   const fetchLimitedPitch = async () => {
     const page = pageNumber + 1;
     setPageNumber(page);
-    await axios.get(`https://shart-tank.vercel.app/pitchlimit?limit=3&skip=${(page - 1) * 3}`)
+    await axios.get(`REACT_APP_BASE_API_URLpitchlimit?limit=3&skip=${(page - 1) * 3}`)
       .then((res) => {
         setAllPitches([...allPitches, ...res.data]);
         setPitchLoading(false);
@@ -56,7 +56,7 @@ const Feed = () => {
   }
 
   useEffect(() => {
-    axios.get(`https://shart-tank.vercel.app/totalpitches`).then((res) => {
+    axios.get(`REACT_APP_BASE_API_URLtotalpitches`).then((res) => {
       setCount(res.data.totalpitches)
       fetchLimitedPitch()
     })

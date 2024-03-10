@@ -67,7 +67,7 @@ const Profile = () => {
 
   useEffect(() => {
     axios
-      .get(`https://shart-tank.vercel.app/user/${params.userId}`)
+      .get(`REACT_APP_BASE_API_URLuser/${params.userId}`)
       .then((res) => {
         setUserdata(res.data)
         setIsuser(true)
@@ -98,7 +98,7 @@ const Profile = () => {
     const updatedata = { id: userData._id, name, phone, companyname, avatar }
 
     axios
-      .post(`https://shart-tank.vercel.app/user/update`, updatedata)
+      .post(`REACT_APP_BASE_API_URLuser/update`, updatedata)
       .then((res) => {
         setUserdata(res.data)
         setOpen(false)

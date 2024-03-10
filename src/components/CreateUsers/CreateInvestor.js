@@ -88,10 +88,10 @@ const CreateInvestor = () => {
     }
 
     await axios
-      .post(`https://shart-tank.vercel.app/createinvestor`, investor)
+      .post(`REACT_APP_BASE_API_URLcreateinvestor`, investor)
       .then((res) => {
         dispatch(
-          fetchUser(`https://shart-tank.vercel.app/user/${res.data._id}`),
+          fetchUser(`REACT_APP_BASE_API_URLuser/${res.data._id}`),
         )
         navigate('/feed')
       })

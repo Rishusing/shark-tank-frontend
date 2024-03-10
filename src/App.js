@@ -25,10 +25,10 @@ function App() {
   useMemo(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        dispatch(fetchUser(`https://shart-tank.vercel.app/user/${currentUser.uid}`))
-        dispatch(fetchAllUser(`https://shart-tank.vercel.app/alluser/${currentUser.uid}`))
+        dispatch(fetchUser(`REACT_APP_BASE_API_URLuser/${currentUser.uid}`))
+        dispatch(fetchAllUser(`REACT_APP_BASE_API_URLalluser/${currentUser.uid}`))
         dispatch(setUser({ email: currentUser.email, uid: currentUser.uid }))
-        dispatch(fetchConversation(`https://shart-tank.vercel.app/chat_list/${currentUser.uid}`))
+        dispatch(fetchConversation(`REACT_APP_BASE_API_URLchat_list/${currentUser.uid}`))
       }
     })
   }, [dispatch])

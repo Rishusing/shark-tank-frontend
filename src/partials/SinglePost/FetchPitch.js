@@ -13,7 +13,7 @@ const FetchPitch = () => {
 
   useEffect(() => {
     axios
-      .get(`https://shart-tank.vercel.app/singlepitche/${params.id}`)
+      .get(`REACT_APP_BASE_API_URLsinglepitche/${params.id}`)
       .then((res) => {
         setPitchData(res.data)
         setFlag(true)

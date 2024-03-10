@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
 
 
-const socket = io('https://shart-tank.vercel.app/');
+const socket = io('REACT_APP_BASE_API_URL');
 
 const MainBoard = () => {
 

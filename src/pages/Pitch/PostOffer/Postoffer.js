@@ -50,10 +50,10 @@ const Postoffer = (props) => {
     // console.log(newOffer);
 
     await axios
-      .post(`https://shart-tank.vercel.app/pitches/offer`, newOffer)
+      .post(`REACT_APP_BASE_API_URLpitches/offer`, newOffer)
       .then(() => {
         dispatch(
-          fetchOffer(`https://shart-tank.vercel.app/findoffers/${pitchID}`),
+          fetchOffer(`REACT_APP_BASE_API_URLfindoffers/${pitchID}`),
         )
         setBid({ amount: "", equity: "", suggestion: "" });
         setTotalOffer((prev) => prev + 1)
@@ -91,7 +91,7 @@ const Postoffer = (props) => {
     }
 
     await axios
-      .post(`https://shart-tank.vercel.app/user/notify`, message)
+      .post(`REACT_APP_BASE_API_URLuser/notify`, message)
       .then(() => {
         toast.success('message sent to entrepreneur', {
           position: 'bottom-right',

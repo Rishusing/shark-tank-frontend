@@ -15,7 +15,7 @@ const Notify = () => {
 
   useEffect(() => {
     axios
-      .get(`https://shart-tank.vercel.app/messages/${user.id}`)
+      .get(`REACT_APP_BASE_API_URLmessages/${user.id}`)
       .then((res) => {
         res.data.messages.reverse()
         setMessages(res.data.messages)

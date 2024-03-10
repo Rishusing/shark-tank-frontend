@@ -58,7 +58,7 @@ const EachPitch = ({ pitchData }) => {
     setTotallike(totallike + 1)
     const likeObj = { pitchId: pitchData._id, likerId: checkuserType.users._id }
     axios
-      .post(`https://shart-tank.vercel.app/pitches/like`, likeObj)
+      .post(`REACT_APP_BASE_API_URLpitches/like`, likeObj)
       .then(() => {
         setTotallike(totallike + 1)
       })

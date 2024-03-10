@@ -85,7 +85,7 @@ const Pitchmachine = ({ setAllPitches, setCount }) => {
     }
 
     axios
-      .post(`https://shart-tank.vercel.app/createpitch`, pitch)
+      .post(`REACT_APP_BASE_API_URLcreatepitch`, pitch)
       .then(() => {
         toast.success('Your pitch is posted', {
           position: 'bottom-right',
