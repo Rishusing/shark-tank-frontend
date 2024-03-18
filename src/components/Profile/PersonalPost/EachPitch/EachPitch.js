@@ -58,7 +58,7 @@ const EachPitch = ({ pitchData }) => {
     setTotallike(totallike + 1)
     const likeObj = { pitchId: pitchData._id, likerId: checkuserType.users._id }
     axios
-      .post(`${process.env.REACT_APP_BASE_API_URL}pitches/like`, likeObj)
+      .post(`${process.env.REACT_APP_BASE_API_URL}/pitches/like`, likeObj)
       .then(() => {
         setTotallike(totallike + 1)
       })

@@ -18,3 +18,8 @@
     align-items: center;
     /* justify-content: center; */
 }
+
+.chat_main_child .chatPoster {
+    margin-left: 18%;
+
+}

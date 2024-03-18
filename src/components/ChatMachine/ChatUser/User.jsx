@@ -1,11 +1,9 @@
 import React from 'react'
 import './User.css'
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setSelectedUser } from '../../../redux/slice/selected_userSlice'
 
 const User = ({ on_select, userDetail, selectedUserId }) => {
-
-    console.log('debug:- User.jsx');
 
     const dispatch = useDispatch();
 

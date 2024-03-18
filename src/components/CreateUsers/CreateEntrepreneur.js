@@ -91,10 +91,10 @@ const CreateEntrepreneur = () => {
     }
 
     await axios
-      .post(`${process.env.REACT_APP_BASE_API_URL}createentrepreneur`, entrepreneur)
+      .post(`${process.env.REACT_APP_BASE_API_URL}/createentrepreneur`, entrepreneur)
       .then((res) => {
         dispatch(
-          fetchUser(`${process.env.REACT_APP_BASE_API_URL}user/${res.data._id}`),
+          fetchUser(`${process.env.REACT_APP_BASE_API_URL}/user/${res.data._id}`),
         )
         navigate('/feed')
       })

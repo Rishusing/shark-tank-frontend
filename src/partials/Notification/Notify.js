@@ -15,7 +15,7 @@ const Notify = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_API_URL}messages/${user.id}`)
+      .get(`${process.env.REACT_APP_BASE_API_URL}/messages/${user.id}`)
       .then((res) => {
         res.data.messages.reverse()
         setMessages(res.data.messages)

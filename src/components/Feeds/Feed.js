@@ -45,7 +45,7 @@ const Feed = () => {
   const fetchLimitedPitch = async () => {
     const page = pageNumber + 1;
     setPageNumber(page);
-    await axios.get(`${process.env.REACT_APP_BASE_API_URL}pitchlimit?limit=3&skip=${(page - 1) * 3}`)
+    await axios.get(`${process.env.REACT_APP_BASE_API_URL}/pitchlimit?limit=3&skip=${(page - 1) * 3}`)
       .then((res) => {
         setAllPitches([...allPitches, ...res.data]);
         setPitchLoading(false);
@@ -56,7 +56,7 @@ const Feed = () => {
   }
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BASE_API_URL}totalpitches`).then((res) => {
+    axios.get(`${process.env.REACT_APP_BASE_API_URL}/totalpitches`).then((res) => {
       setCount(res.data.totalpitches)
       fetchLimitedPitch()
     })

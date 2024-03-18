@@ -16,7 +16,7 @@ const Comment = ({ pitchID, setTotalComment }) => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_API_URL}findcomment/${pitchID}`)
+      .get(`${process.env.REACT_APP_BASE_API_URL}/findcomment/${pitchID}`)
       .then((res) => {
         // const
         const newData = res.data.reverse()
@@ -45,7 +45,7 @@ const Comment = ({ pitchID, setTotalComment }) => {
       commentText: inpcomment,
     }
     axios
-      .post(`${process.env.REACT_APP_BASE_API_URL}pitches/comment`, newComment)
+      .post(`${process.env.REACT_APP_BASE_API_URL}/pitches/comment`, newComment)
       .then((res) => {
         const newData = res.data.reverse()
         setComments(newData)

@@ -8,7 +8,7 @@ const PersonalPost = ({ userId }) => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_API_URL}findpitches/${userId}`)
+      .get(`${process.env.REACT_APP_BASE_API_URL}/findpitches/${userId}`)
       .then((res) => {
         setPitches(res.data)
       })
