@@ -13,7 +13,6 @@ import Popup from 'reactjs-popup'
 import { format, parseISO } from 'date-fns';
 
 
-
 const MessageBox = ({ own_id }) => {
 
     var socket;
@@ -22,6 +21,8 @@ const MessageBox = ({ own_id }) => {
     const [text, setText] = useState('');
     const [open1, setOpen1] = useState(false)
     const closeModal1 = () => setOpen1(false)
+    const [typing, setTyping] = useState(false);
+    const [istyping, setIsTyping] = useState(false);
 
 
     const handleEmojiClick = (e, emojiData) => {
@@ -89,6 +90,15 @@ const MessageBox = ({ own_id }) => {
     useEffect(() => {
         socket = io(`http://localhost:8000/`);
         socket.on(own_id, handleMessageReceive);
+        socket.on("check_typing" + own_id, (value) => {
+            setIsTyping(true);
+            const timer = setTimeout(() => {
+                setIsTyping(false);
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        });
+
         return () => {
             socket.off(own_id, handleMessageReceive);
         };
@@ -112,6 +122,14 @@ const MessageBox = ({ own_id }) => {
         return format(parsedDate, "dd MMM HH:mm");
     };
 
+
+    const typingHandler = (e) => {
+        setText(e.target.value);
+
+        socket.emit("check_typing", { room: selectedUserState.selectedUser._id, istyping: true });
+
+    };
+
     return (
         <>
             {
@@ -127,16 +145,23 @@ const MessageBox = ({ own_id }) => {
                     </div>
                     <div className="main_chat_box" ref={autoScrollRef}>
 
-                        {
-                            chats.map((chat) => {
-                                return (
-                                    <div key={chat._id} className={chat.senderId === own_id ? 'message sender' : 'message receiver'}>
-                                        <span>{chat.content} <p>{formatDate(chat.createdAt)}</p> </span>
-                                    </div>
-                                )
-                            })
-                        }
+                        <div className="main_chat_box1">
+                            {
+                                chats.map((chat) => {
+                                    return (
+                                        <div key={chat._id} className={chat.senderId === own_id ? 'message sender' : 'message receiver'}>
+                                            <span>{chat.content} <p>{formatDate(chat.createdAt)}</p> </span>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+
+                        <div className='main_chat_box2'>
+                            {istyping && <p>Typing...</p>}
+                        </div>
                     </div>
+
                     <div className="input-form-container">
                         <div className="emoji-button-container">
                             <div className="emoji">
@@ -160,7 +185,7 @@ const MessageBox = ({ own_id }) => {
                         </div>
                         <div className='input-form'>
                             <form className="chat_form" onSubmit={sendMessage}>
-                                <input id='msg_inputField' type="text" placeholder='Type here 👉' value={text} className='inp' onChange={(e) => setText(e.target.value)} />
+                                <input id='msg_inputField' type="text" placeholder='Type here 👉' value={text} className='inp' onChange={typingHandler} />
                                 <button><MdSend /></button>
                             </form>
                         </div>
