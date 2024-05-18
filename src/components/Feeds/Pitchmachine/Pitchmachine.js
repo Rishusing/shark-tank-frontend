@@ -86,7 +86,7 @@ const Pitchmachine = ({ setAllPitches, setCount }) => {
 
     axios
       .post(`${process.env.REACT_APP_BASE_API_URL}/createpitch`, pitch)
-      .then(() => {
+      .then((res) => {
         toast.success('Your pitch is posted', {
           position: 'bottom-right',
           autoClose: 2000,
@@ -98,7 +98,7 @@ const Pitchmachine = ({ setAllPitches, setCount }) => {
           theme: 'light',
         })
 
-        const addPitchOnTop = { _id: 'kjndjnjdasnjajkas728y7y8', createdAt: new Date(), likes: [], offers: [], comments: [], ...pitch };
+        const addPitchOnTop = { _id: res.data._id, createdAt: new Date(), likes: [], offers: [], comments: [], ...pitch };
 
         setAllPitches(prev => [addPitchOnTop, ...prev])
         setCount(prev => prev + 1);

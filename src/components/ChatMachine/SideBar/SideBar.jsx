@@ -5,6 +5,7 @@ import axios from 'axios'
 import UserSkeleton from '../UserSkeleton/UserSkeleton'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchChatListUsersDetail } from '../../../redux/slice/chat_list_users_detailSlice'
+import { fetchConversation } from '../../../redux/slice/conversationSlice'
 
 const SideBar = ({ on_select, own_id, selectedUserId }) => {
 
@@ -77,6 +78,8 @@ const SideBar = ({ on_select, own_id, selectedUserId }) => {
     const addToChatList = async (_id) => {
         try {
             const res = await axios.post(`${process.env.REACT_APP_BASE_API_URL}/newconversation`, { userId1: own_id, userId2: _id })
+
+            dispatch(fetchConversation(`${process.env.REACT_APP_BASE_API_URL}/chat_list/${own_id}`))
 
             console.log([...userspinned.conversations, res.data]);
             fetchUserDetails([...userspinned.conversations, res.data]);
